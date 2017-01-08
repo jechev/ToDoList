@@ -1,0 +1,14 @@
+{
+  "name": "todo-express",
+  "version": "1.0.0",
+  "description": "Back-end for simple TODO",
+  "main": "index.js",
+  "author": "DZ",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "1.15.2",
+    "express": "4.14.0",
+    "mongoose": "4.7.6",
+    "standart": "6.1.0"
+  }
+}
