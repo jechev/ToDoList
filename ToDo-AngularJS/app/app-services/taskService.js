@@ -52,7 +52,7 @@ angular.module('toDoSystem.app-services.taskService',[])
             
             function deleteTask(taskId){
                 var deferred = $q.defer()
-                $http.delete(BASE_URL + 'delete/' + taskId)
+                $http.post(BASE_URL + 'delete/' + taskId,null, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
                 .success(function (data){
                     deferred.resolve(data)
                 }).error(function (err){

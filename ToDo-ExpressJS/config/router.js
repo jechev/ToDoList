@@ -6,7 +6,7 @@ module.exports = (app) => {
     app.get('/task/activities',taskController.activies)
     app.get ('/task/completed', taskController.completed)
     app.post('/task/update/:id', taskController.update)
-    app.delete('/task/delete/:id', taskController.delete)
+    app.post('/task/delete/:id', taskController.delete)
     app.all('*', (req, res) => {
     res.status(404)
     res.send('Not Found')

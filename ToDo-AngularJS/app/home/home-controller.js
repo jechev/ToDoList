@@ -28,6 +28,7 @@ angular.module('toDoSystem.home',[])
                 taskService.deleteTask(taskId)
                 .then(
                     function success(data){
+                        $scope.getAllTasks()
                         console.log(data)
                     },
                     function err(err){
