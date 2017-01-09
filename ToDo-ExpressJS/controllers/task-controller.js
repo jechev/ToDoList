@@ -2,7 +2,18 @@ const Task = require('../data/task')
 
 module.exports = {
     post: (req, res) => {
-        var text = req.body.text
+        var bodyData = req.body
+        var text
+        if(bodyData.text){
+            text= bodyData.text
+        }else {
+            for(var name in bodyData){
+            text = name
+            }
+        }
+        
+		console.log(text)
+
         var task = new Task({
             text: text,
             isCompleted: false

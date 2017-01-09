@@ -5,12 +5,12 @@ var rootPath = path.normalize(path.join(__dirname, '/../../'))
 module.exports = {
   development: {
     rootPath: rootPath,
-    db: 'mongodb://localhost:27017/todo-db',
+    db: 'mongodb://demo:demo@ds159188.mlab.com:59188/todolist',
     port: 1337
   },
   production: {
     rootPath: rootPath,
-    db: process.env.MONGO_DB_CONN_STRING,
+    db: 'mongodb://demo:demo@ds159188.mlab.com:59188/todolist',
     port: process.env.port
   }
 }
