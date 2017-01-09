@@ -17,8 +17,6 @@ angular.module('toDoSystem.home',[])
                         $scope.uncompleteTasksCount=data.filter(function(t) {
                             return t.isCompleted === false
                         }).length
-                        console.log($scope.uncompleteTasksCount)
-                        console.log($scope.currentTasks)
                     },
                     function err(err){
                         console.log(err)
@@ -42,7 +40,6 @@ angular.module('toDoSystem.home',[])
                 .then(
                     function success(data){
                         $scope.currentTasks=data
-                        console.log($scope.currentTasks)
                     },
                     function err(err){
                         console.log(err)
@@ -54,7 +51,6 @@ angular.module('toDoSystem.home',[])
                 .then(
                     function success(data){
                         $scope.currentTasks=data
-                        console.log($scope.currentTasks)
                     },
                     function err(err){
                         console.log(err)
@@ -65,8 +61,29 @@ angular.module('toDoSystem.home',[])
                 taskService.createTask(input)
                 .then(
                     function success(data){
-                        console.log(data)
                         $scope.getAllTasks()
+                    },
+                    function err(err){
+                        console.log(err)
+                    }
+                )
+            }
+            $scope.checkTask = function (taskId) {
+                taskService.updateTask(taskId,true)
+                .then(
+                    function success(data){
+                        $scope.getAllTasks()    
+                    },
+                    function err(err){
+                        console.log(err)
+                    }
+                )
+            }
+            $scope.uncheckTask = function (taskId) {
+                taskService.updateTask(taskId,false)
+                .then(
+                    function success(data){
+                        $scope.getAllTasks()    
                     },
                     function err(err){
                         console.log(err)

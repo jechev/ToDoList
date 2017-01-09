@@ -7,8 +7,8 @@
             <button class="btn btn-primary" ng-disabled="todoForm.$invalid" ng-click="addTask(text)">Add todo</button>
         </form>   
         <li class="list-group-item" ng-repeat="task in currentTasks">
-            <img ng-if="!task.isCompleted" class="img-circle" src="../../img/empty-circle.png">
-            <img ng-if="task.isCompleted" class="img-circle" src="../../img/check-circle.png">
+            <img ng-if="!task.isCompleted" ng-click="checkTask(task._id)" class="img-circle" src="../../img/empty-circle.png">
+            <img ng-if="task.isCompleted" ng-click="uncheckTask(task._id)" class="img-circle" src="../../img/check-circle.png">
             <span class="task-text">{{task.text}}</span>
             <button type="button" class="btn btn-xs btn-danger" ng-click="deleteTask(task._id)">
                     <span class="glyphicon glyphicon-remove"></span>

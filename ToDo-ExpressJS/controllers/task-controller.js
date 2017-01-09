@@ -53,7 +53,15 @@ module.exports = {
     },
     update: (req,res) => {
         var id = req.params.id
-        var isCompleted = req.body.isCompleted
+        var bodyData = req.body
+		var isCompleted
+        if(bodyData.isCompleted){
+            isCompleted= bodyData.isCompleted
+        }else {
+            for(var name in bodyData){
+            isCompleted = name
+            }
+        }
         Task.findByIdAndUpdate(id,
         {$set: {isCompleted:isCompleted}},
         { safe: true, upsert: true, new: true })

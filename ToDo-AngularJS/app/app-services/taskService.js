@@ -60,9 +60,10 @@ angular.module('toDoSystem.app-services.taskService',[])
                 })
                 return deferred.promise
             }
-            function updateTask(taskId){
-                var isCompleted = true
-                $http.put(BASE_URL + 'update/' + taskId,isCompleted)
+            function updateTask(taskId,isCompleted){
+                var deferred = $q.defer()
+                console.log(isCompleted)
+                $http.post(BASE_URL + 'update/' + taskId,isCompleted,{ headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
                 .success(function (data){
                     deferred.resolve(data)
                 }).error(function (err){
