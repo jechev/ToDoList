@@ -6,6 +6,7 @@ angular.module('toDoSystem.app-services.taskService',[])
         '$q',
         'BASE_URL',
         function($http, $q, BASE_URL){
+
             function getAllTasks(){
                 var deferred = $q.defer()
                 $http.get(BASE_URL + 'all')
@@ -62,7 +63,6 @@ angular.module('toDoSystem.app-services.taskService',[])
             }
             function updateTask(taskId,isCompleted){
                 var deferred = $q.defer()
-                console.log(isCompleted)
                 $http.post(BASE_URL + 'update/' + taskId,isCompleted,{ headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
                 .success(function (data){
                     deferred.resolve(data)
@@ -78,10 +78,7 @@ angular.module('toDoSystem.app-services.taskService',[])
               getAllCompletedTasks : getAllCompletedTasks,
               createTask: createTask,
               deleteTask: deleteTask,
-              updateTask: updateTask,
-              create: function(todoData){
-                  return $http.post(BASE_URL,todoData)
-              }
+              updateTask: updateTask
             }
         }
     ])

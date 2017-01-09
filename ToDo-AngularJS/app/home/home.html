@@ -1,24 +1,34 @@
 <div class="margin-bottom-100"></div>
-<div class="text-center" id="home-header-container">
+<div class="" id="home-container">
     <h1 >ToDo System</h1>
-    <ul class="list-group">
-        <form name="todoForm">
-            <input type="text" ng-model="text" required="required" class="form-control"/>
-            <button class="btn btn-primary" ng-disabled="todoForm.$invalid" ng-click="addTask(text)">Add todo</button>
-        </form>   
+    <div class="row">
+    <form name="todoForm">
+        <input type="text" ng-model="text" placeholder="Write your task and click &#34;Enter&#34;" ng-keyup="$event.keyCode == 13 && addTask(text)" required="required" id="task-input" class="form-control"/>
+    </form>      
+    <ul class="list-group"> 
         <li class="list-group-item" ng-repeat="task in currentTasks">
             <img ng-if="!task.isCompleted" ng-click="checkTask(task._id)" class="img-circle" src="../../img/empty-circle.png">
             <img ng-if="task.isCompleted" ng-click="uncheckTask(task._id)" class="img-circle" src="../../img/check-circle.png">
-            <span class="task-text">{{task.text}}</span>
-            <button type="button" class="btn btn-xs btn-danger" ng-click="deleteTask(task._id)">
-                    <span class="glyphicon glyphicon-remove"></span>
-            </button>
+            <span class="task-text" ng-if="!task.isCompleted">{{task.text}}</span>
+            <span class="task-text" id="done-task" ng-if="task.isCompleted"><s>{{task.text}}</s></span>
+            <button type="button" class="btn btn-xs btn-danger btn-delete" ng-click="deleteTask(task._id)">
+                <span class="glyphicon glyphicon-remove"></span>
+            </button>           
         </li>
     </ul>   
+    </div>
         <div>
-            <span> {{uncompleteTasksCount}} tasks left </span>
-            <span> All </span>
-            <span> Active </span>
-            <span> Completed </span>
+            <span>
+                <strong>
+                 {{uncompleteTasksCount}} tasks left
+                </strong>
+            </span>
+            <div id="button-box">
+            <span ng-click="getAllTasks()" class="filter-button"> All </span>
+            <span ng-click="getUncompletedTasks()" class="filter-button"> Active </span>
+            <span ng-click="getCompletedTasks()" class="filter-button"> Completed </span>
+            </div>
         </div>
 </div>
+<br>
+<br>

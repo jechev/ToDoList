@@ -7,25 +7,45 @@ h1{
 h3{
   color:#31b0d5;
 }
-.navbar-right{
-  margin-right: 0;
-}
+
 .border{
   border: 2px solid #31b0d5;
   padding-bottom: 10px;
 }
-.home-header-container{
+.home-container{
   margin: 20px;
 
 }
-.glyphicon-one-fine-empty-dot:before {
-    content:"\25cb";
-    font-size: 4em;
-}
-.glyphicon-ok-circle:before {
-  font-size: 2em;
-}
+
 .img-circle{
   width: 32px;
   height: 32px;
+  margin-bottom:10px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.task-text{
+  font-size:26px;
+  
+}
+.btn-delete{
+  float: right;
+  margin-top: 12px;
+}
+#button-box{
+  display: inline;
+    text-align: center;
+    margin-left: 450px;
+}
+#done-task{
+  color:silver;
+}
+.filter-button{
+  margin-left: 5px;
+  cursor: pointer;
+}
+#task-input{
+  margin-bottom:20px;
+  height: 42px;
+  font-size: 32px;
 }
