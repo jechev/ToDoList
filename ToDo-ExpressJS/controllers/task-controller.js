@@ -11,13 +11,12 @@ module.exports = {
             text = name
             }
         }
-        
-		console.log(text)
 
         var task = new Task({
             text: text,
             isCompleted: false
         })
+        
         task.save(function(err) {
             if(err){
                 res.send(err)
